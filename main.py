@@ -56,6 +56,7 @@ with open('pp/' + target + '/iGActivity$2.smali', 'r') as f:
     pp1 = str(f.read())
     pp1 = pp1.replace('%%debughost%%', config.DEBUG_HOST_PROXY)
 
+do_cmd('rm -rf *-x.apk')
 do_cmd('apktool d -o out ' + target_apk)
 do_cmd('cp pp/' + target + '/AndroidManifest.xml out/')
 do_cmd('cp pp/' + target + '/iGActivity.smali out/smali/com/supercell/' + ext + "/")
@@ -77,3 +78,5 @@ do_cmd('jarsigner -sigalg SHA1withRSA -digestalg SHA1 -keystore poseidon.keystor
 do_cmd('zipalign 4 temp.apk ' + target + '-x.apk')
 do_cmd('rm temp.apk')
 do_cmd('sudo rm -rf out')
+
+print('apk ready ==> ' + target + '-x.apk')

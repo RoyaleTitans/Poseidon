@@ -126,7 +126,7 @@
 
     move-result-object v1
 
-    const/4 v3, 0x2
+    const/4 v3, 0x0
 
     invoke-static {v1, v3}, Landroid/util/Base64;->decode([BI)[B
 
