@@ -1,4 +1,14 @@
-Allow Supercell Games to connect to a third party host server without root.
+Allow Supercell Games to connect to titan servers and a custom proxy server for debug.
+
+--------------------
+
+## How to:
+
+* edit config.py and set your proxy host
+* move apk to the root folder and run main.py
+
+## Proof
+
 
 --------------------
 

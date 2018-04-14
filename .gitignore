@@ -1,4 +1,5 @@
-coc.apk
-coc-x.apk
+*.apk
 out/
 .idea
+private/
+__pycache__
