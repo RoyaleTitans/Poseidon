@@ -7,6 +7,10 @@ Allow Supercell Games to connect to titan servers and a custom proxy server for 
 * edit config.py and set your proxy host
 * move apk to the root folder and run main.py
 
+## Join us
+
+https://discord.gg/YvsKm
+
 ## Proof
 
 ![](https://raw.githubusercontent.com/RoyaleTitans/Poseidon/master/images/screenshot_0.jpg)
