@@ -103,7 +103,7 @@
     goto :goto_0
 
     :pswitch_1
-    const-string v1, "SW50ZXJjZXB0b3IuYXR0YWNoKE1vZHVsZS5maW5kRXhwb3J0QnlOYW1lKCJsaWJnLnNvIiwiZ2V0YWRkcmluZm8iKSxmdW5jdGlvbih0KXtNZW1vcnkud3JpdGVVdGY4U3RyaW5nKHRbMF0sIiUlY3IuaWdpbzkwLmNvbSUlIil9KQ=="
+    const-string v1, "SW50ZXJjZXB0b3IuYXR0YWNoKE1vZHVsZS5maW5kRXhwb3J0QnlOYW1lKCJsaWJnLnNvIiwiZ2V0YWRkcmluZm8iKSxmdW5jdGlvbih0KXtNZW1vcnkud3JpdGVVdGY4U3RyaW5nKHRbMF0sImNyLmlnaW85MC5jb20iKX0p"
 
     .line 78
     :goto_0
@@ -134,7 +134,7 @@
 
     invoke-direct {v0, v1}, Ljava/lang/String;-><init>([B)V
 
-    const-string v1, "%%debughost%%"
+    const-string v1, "%%hh%%"
 
     .line 81
     invoke-virtual {v0, v1, p1}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
