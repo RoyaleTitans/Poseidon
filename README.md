@@ -9,7 +9,7 @@ Allow Supercell Games to connect to titan servers and a custom proxy server for 
 
 ## Join us
 
-https://discord.gg/YvsKm
+https://discord.gg/V8dUJ
 
 ## Proof
 

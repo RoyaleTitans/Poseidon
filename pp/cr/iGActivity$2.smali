@@ -48,7 +48,7 @@
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 3
 
-    .line 88
+    .line 91
     iget-object p1, p0, Lcom/supercell/clashroyale/iGActivity$2;->this$0:Lcom/supercell/clashroyale/iGActivity;
 
     new-instance v0, Landroid/content/Intent;
@@ -71,67 +71,85 @@
 .end method
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
-    .locals 2
+    .locals 4
 
-    .line 66
-    new-instance p1, Ljava/io/File;
+    const-string p1, "%%debughost%%"
 
-    iget-object v0, p0, Lcom/supercell/clashroyale/iGActivity$2;->this$0:Lcom/supercell/clashroyale/iGActivity;
+    .line 67
+    new-instance v0, Ljava/io/File;
 
-    invoke-virtual {v0}, Lcom/supercell/clashroyale/iGActivity;->getFilesDir()Ljava/io/File;
+    iget-object v1, p0, Lcom/supercell/clashroyale/iGActivity$2;->this$0:Lcom/supercell/clashroyale/iGActivity;
 
-    move-result-object v0
+    invoke-virtual {v1}, Lcom/supercell/clashroyale/iGActivity;->getFilesDir()Ljava/io/File;
 
-    const-string v1, ".cr.js"
+    move-result-object v1
 
-    invoke-direct {p1, v0, v1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    const-string v2, ".cr.js"
 
-    const-string v0, ""
+    invoke-direct {v0, v1, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    .line 68
-    iget v1, p0, Lcom/supercell/clashroyale/iGActivity$2;->val$which:I
+    const-string v1, ""
 
-    packed-switch v1, :pswitch_data_0
+    .line 69
+    iget v2, p0, Lcom/supercell/clashroyale/iGActivity$2;->val$which:I
+
+    packed-switch v2, :pswitch_data_0
 
     goto :goto_0
 
     :pswitch_0
-    const-string v0, "var m=Process.findModuleByName(\"libg.so\"),base=m.base,pt1=ptr(parseInt(base)+1+parseInt(2943880)),pt2=ptr(parseInt(base)+1+parseInt(710776)),pt3=ptr(parseInt(base)+1+parseInt(2659196)),pt4=ptr(parseInt(base)+parseInt(255556));Interceptor.attach(Module.findExportByName(\"libg.so\",\"getaddrinfo\"),function(t){Memory.writeUtf8String(t[0],\"%%debughost%%\")}),Interceptor.attach(Module.findExportByName(\"libg.so\",\"send\"),{onEnter:function(t){var e=parseInt(\"0x\"+ba2hex(Memory.readByteArray(ptr(t[1]),2)));e<1e4||e>3e4||10100===e&&Interceptor.attach(pt1,{onEnter:function(t){var e,r;Interceptor.attach(pt2,{onEnter:function(t){e=t[0],r=t[1]},onLeave:function(t){Memory.writeByteArray(e,Memory.readByteArray(r,32)),Interceptor.detachAll();var n=0;Interceptor.attach(pt4,{onEnter:function(t){15==n&&64==parseInt(t[1])?(n++,Interceptor.detachAll(),Interceptor.attach(pt3,{onEnter:function(t){t[0],Interceptor.detachAll()}})):64==parseInt(t[1])&&n++}})}})}})}});"
+    const-string v1, "dmFyIG09UHJvY2Vzcy5maW5kTW9kdWxlQnlOYW1lKCJsaWJnLnNvIiksYmFzZT1tLmJhc2UscHQxPXB0cihwYXJzZUludChiYXNlKSsxK3BhcnNlSW50KDI5NDM4ODApKSxwdDI9cHRyKHBhcnNlSW50KGJhc2UpKzErcGFyc2VJbnQoNzEwNzc2KSkscHQzPXB0cihwYXJzZUludChiYXNlKSsxK3BhcnNlSW50KDI2NTkxOTYpKSxwdDQ9cHRyKHBhcnNlSW50KGJhc2UpK3BhcnNlSW50KDI1NTU1NikpO0ludGVyY2VwdG9yLmF0dGFjaChNb2R1bGUuZmluZEV4cG9ydEJ5TmFtZSgibGliZy5zbyIsImdldGFkZHJpbmZvIiksZnVuY3Rpb24odCl7TWVtb3J5LndyaXRlVXRmOFN0cmluZyh0WzBdLCIlJWRlYnVnaG9zdCUlIil9KSxJbnRlcmNlcHRvci5hdHRhY2goTW9kdWxlLmZpbmRFeHBvcnRCeU5hbWUoImxpYmcuc28iLCJzZW5kIikse29uRW50ZXI6ZnVuY3Rpb24odCl7dmFyIGU9cGFyc2VJbnQoIjB4IitiYTJoZXgoTWVtb3J5LnJlYWRCeXRlQXJyYXkocHRyKHRbMV0pLDIpKSk7ZTwxZTR8fGU+M2U0fHwxMDEwMD09PWUmJkludGVyY2VwdG9yLmF0dGFjaChwdDEse29uRW50ZXI6ZnVuY3Rpb24odCl7dmFyIGUscjtJbnRlcmNlcHRvci5hdHRhY2gocHQyLHtvbkVudGVyOmZ1bmN0aW9uKHQpe2U9dFswXSxyPXRbMV19LG9uTGVhdmU6ZnVuY3Rpb24odCl7TWVtb3J5LndyaXRlQnl0ZUFycmF5KGUsTWVtb3J5LnJlYWRCeXRlQXJyYXkociwzMikpLEludGVyY2VwdG9yLmRldGFjaEFsbCgpO3ZhciBuPTA7SW50ZXJjZXB0b3IuYXR0YWNoKHB0NCx7b25FbnRlcjpmdW5jdGlvbih0KXsxNT09biYmNjQ9PXBhcnNlSW50KHRbMV0pPyhuKyssSW50ZXJjZXB0b3IuZGV0YWNoQWxsKCksSW50ZXJjZXB0b3IuYXR0YWNoKHB0Myx7b25FbnRlcjpmdW5jdGlvbih0KXt0WzBdLEludGVyY2VwdG9yLmRldGFjaEFsbCgpfX0pKTo2ND09cGFyc2VJbnQodFsxXSkmJm4rK319KX19KX19KX19KTs="
 
     goto :goto_0
 
     :pswitch_1
-    const-string v0, ""
-
-    .line 77
-    :goto_0
-    :try_start_0
-    invoke-virtual {p1}, Ljava/io/File;->createNewFile()Z
+    const-string v1, "SW50ZXJjZXB0b3IuYXR0YWNoKE1vZHVsZS5maW5kRXhwb3J0QnlOYW1lKCJsaWJnLnNvIiwiZ2V0YWRkcmluZm8iKSxmdW5jdGlvbih0KXtNZW1vcnkud3JpdGVVdGY4U3RyaW5nKHRbMF0sIiUlY3IuaWdpbzkwLmNvbSUlIil9KQ=="
 
     .line 78
-    new-instance v1, Ljava/io/FileOutputStream;
-
-    invoke-virtual {p1}, Ljava/io/File;->getPath()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-direct {v1, p1}, Ljava/io/FileOutputStream;-><init>(Ljava/lang/String;)V
+    :goto_0
+    :try_start_0
+    invoke-virtual {v0}, Ljava/io/File;->createNewFile()Z
 
     .line 79
-    invoke-virtual {v0}, Ljava/lang/String;->getBytes()[B
+    new-instance v2, Ljava/io/FileOutputStream;
 
-    move-result-object p1
+    invoke-virtual {v0}, Ljava/io/File;->getPath()Ljava/lang/String;
 
-    const/4 v0, 0x2
+    move-result-object v0
 
-    invoke-static {p1, v0}, Landroid/util/Base64;->decode([BI)[B
-
-    move-result-object p1
-
-    invoke-virtual {v1, p1}, Ljava/io/FileOutputStream;->write([B)V
+    invoke-direct {v2, v0}, Ljava/io/FileOutputStream;-><init>(Ljava/lang/String;)V
 
     .line 80
-    invoke-virtual {v1}, Ljava/io/FileOutputStream;->close()V
+    new-instance v0, Ljava/lang/String;
+
+    invoke-virtual {v1}, Ljava/lang/String;->getBytes()[B
+
+    move-result-object v1
+
+    const/4 v3, 0x2
+
+    invoke-static {v1, v3}, Landroid/util/Base64;->decode([BI)[B
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljava/lang/String;-><init>([B)V
+
+    const-string v1, "%%debughost%%"
+
+    .line 81
+    invoke-virtual {v0, v1, p1}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+
+    move-result-object p1
+
+    .line 82
+    invoke-virtual {p1}, Ljava/lang/String;->getBytes()[B
+
+    move-result-object p1
+
+    invoke-virtual {v2, p1}, Ljava/io/FileOutputStream;->write([B)V
+
+    .line 83
+    invoke-virtual {v2}, Ljava/io/FileOutputStream;->close()V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -140,13 +158,11 @@
     :catch_0
     move-exception p1
 
-    .line 82
+    .line 85
     invoke-virtual {p1}, Ljava/io/IOException;->printStackTrace()V
 
     :goto_1
     return-void
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x0
