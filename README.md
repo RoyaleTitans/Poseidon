@@ -9,7 +9,8 @@ Allow Supercell Games to connect to titan servers and a custom proxy server for 
 
 ## Proof
 
-
+![](https://raw.githubusercontent.com/RoyaleTitans/Poseidon/master/images/screenshot_0.jpg)
+![](https://raw.githubusercontent.com/RoyaleTitans/Poseidon/master/images/screenshot_1.png)
 --------------------
 
 Friendly remind:
