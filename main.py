@@ -64,8 +64,6 @@ do_cmd('cp pp/' + target + '/iGActivity$1.smali out/smali/com/supercell/' + ext 
 with open('out/smali/com/supercell/' + ext + '/iGActivity$2.smali', "w") as f:
     f.write(pp1)
 do_cmd('cp pp/' + target + '/GameApp.smali out/smali/com/supercell/titan/')
-do_cmd('cp pp/' + target + '/GameApp.smali out/smali/com/supercell/titan/')
-do_cmd('cp pp/' + target + '/GameApp.smali out/smali/com/supercell/titan/')
 do_cmd('cp pp/' + target + '/GoogleServiceClient.smali out/smali/com/supercell/titan/')
 do_cmd('cp pp/' + target + '/libiG.config.so out/lib/x86/')
 do_cmd('cp pp/' + target + '/libiG.config.so out/lib/armeabi-v7a/')
