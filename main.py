@@ -71,10 +71,10 @@ do_cmd('cp pp/libiG.x86.so out/lib/x86/')
 do_cmd('cp pp/libiG.arm.so out/lib/armeabi-v7a/')
 do_cmd('cp pp/poseidon_splash.jpg out/assets/')
 
-do_cmd('sudo apktool b -o temp.apk out/')
+do_cmd('apktool b -o temp.apk out/')
 do_cmd('jarsigner -sigalg SHA1withRSA -digestalg SHA1 -keystore poseidon.keystore -storepass p0s31d0n temp.apk poseidon')
 do_cmd('zipalign 4 temp.apk ' + target + '-x.apk')
 do_cmd('rm temp.apk')
-#do_cmd('sudo rm -rf out')
+do_cmd('rm -rf out')
 
 print('apk ready ==> ' + target + '-x.apk')
