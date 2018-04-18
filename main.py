@@ -52,21 +52,21 @@ if not os.path.exists(target_apk):
 if os.path.exists('out'):
     shutil.rmtree('out')
 
-with open('pp/' + target + '/iGActivity$2.smali', 'r') as f:
+with open('pp/' + target + '/iGActivity.smali', 'r') as f:
     pp1 = str(f.read())
-    pp1 = pp1.replace('%%debughost%%', config.DEBUG_HOST_PROXY)
+    pp1 = pp1.replace('%%debughost%%', config.HOST)
 
 do_cmd('rm -rf *-x.apk')
 do_cmd('apktool d -o out ' + target_apk)
 do_cmd('cp pp/' + target + '/AndroidManifest.xml out/')
-do_cmd('cp pp/' + target + '/iGActivity.smali out/smali/com/supercell/' + ext + "/")
-do_cmd('cp pp/' + target + '/iGActivity$1.smali out/smali/com/supercell/' + ext + "/")
-with open('out/smali/com/supercell/' + ext + '/iGActivity$2.smali', "w") as f:
+with open('out/smali/com/supercell/' + ext + '/iGActivity.smali', "w") as f:
     f.write(pp1)
+do_cmd('cp pp/' + target + '/iGActivity$1.smali out/smali/com/supercell/' + ext + "/")
 do_cmd('cp pp/' + target + '/GameApp.smali out/smali/com/supercell/titan/')
 do_cmd('cp pp/' + target + '/GoogleServiceClient.smali out/smali/com/supercell/titan/')
 do_cmd('cp pp/' + target + '/libiG.config.so out/lib/x86/')
 do_cmd('cp pp/' + target + '/libiG.config.so out/lib/armeabi-v7a/')
+do_cmd('cp pp/batman.ttf out/assets/')
 do_cmd('cp pp/libiG.x86.so out/lib/x86/')
 do_cmd('cp pp/libiG.arm.so out/lib/armeabi-v7a/')
 do_cmd('cp pp/poseidon_splash.jpg out/assets/')
@@ -75,6 +75,6 @@ do_cmd('sudo apktool b -o temp.apk out/')
 do_cmd('jarsigner -sigalg SHA1withRSA -digestalg SHA1 -keystore poseidon.keystore -storepass p0s31d0n temp.apk poseidon')
 do_cmd('zipalign 4 temp.apk ' + target + '-x.apk')
 do_cmd('rm temp.apk')
-do_cmd('sudo rm -rf out')
+#do_cmd('sudo rm -rf out')
 
 print('apk ready ==> ' + target + '-x.apk')

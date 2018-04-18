@@ -3,7 +3,7 @@
 .source "iGActivity.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
+.implements Landroid/animation/Animator$AnimatorListener;
 
 
 # annotations
@@ -25,7 +25,7 @@
 .method constructor <init>(Lcom/supercell/clashroyale/iGActivity;)V
     .locals 0
 
-    .line 54
+    .line 62
     iput-object p1, p0, Lcom/supercell/clashroyale/iGActivity$1;->this$0:Lcom/supercell/clashroyale/iGActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -35,13 +35,44 @@
 
 
 # virtual methods
-.method public onClick(Landroid/content/DialogInterface;I)V
+.method public onAnimationCancel(Landroid/animation/Animator;)V
     .locals 0
 
-    .line 57
+    return-void
+.end method
+
+.method public onAnimationEnd(Landroid/animation/Animator;)V
+    .locals 3
+
+    .line 70
     iget-object p1, p0, Lcom/supercell/clashroyale/iGActivity$1;->this$0:Lcom/supercell/clashroyale/iGActivity;
 
-    invoke-static {p1, p2}, Lcom/supercell/clashroyale/iGActivity;->access$000(Lcom/supercell/clashroyale/iGActivity;I)V
+    new-instance v0, Landroid/content/Intent;
+
+    iget-object v1, p0, Lcom/supercell/clashroyale/iGActivity$1;->this$0:Lcom/supercell/clashroyale/iGActivity;
+
+    const-class v2, Lcom/supercell/clashroyale/GameApp;
+
+    invoke-direct {v0, v1, v2}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+
+    invoke-virtual {p1, v0}, Lcom/supercell/clashroyale/iGActivity;->startActivity(Landroid/content/Intent;)V
+
+    return-void
+.end method
+
+.method public onAnimationRepeat(Landroid/animation/Animator;)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onAnimationStart(Landroid/animation/Animator;)V
+    .locals 0
+
+    .line 65
+    iget-object p1, p0, Lcom/supercell/clashroyale/iGActivity$1;->this$0:Lcom/supercell/clashroyale/iGActivity;
+
+    invoke-static {p1}, Lcom/supercell/clashroyale/iGActivity;->access$000(Lcom/supercell/clashroyale/iGActivity;)V
 
     return-void
 .end method
