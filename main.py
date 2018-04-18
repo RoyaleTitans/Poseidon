@@ -26,6 +26,13 @@ def do_cmd(cmd):
     os.system(cmd)
 
 
+def safe_del(what):
+    try:
+        os.remove(what)
+    except:
+        pass
+
+
 if len(sys.argv) < 2:
     print('Usage: python main.py [coc|cr]')
     sys.exit(0)
@@ -52,29 +59,33 @@ if not os.path.exists(target_apk):
 if os.path.exists('out'):
     shutil.rmtree('out')
 
+safe_del('coc-x.apk')
+safe_del('cr-x.apk')
+
 with open('pp/' + target + '/iGActivity.smali', 'r') as f:
     pp1 = str(f.read())
     pp1 = pp1.replace('%%debughost%%', config.HOST)
 
-do_cmd('rm -rf *-x.apk')
 do_cmd('apktool d -o out ' + target_apk)
-do_cmd('cp pp/' + target + '/AndroidManifest.xml out/')
+
 with open('out/smali/com/supercell/' + ext + '/iGActivity.smali', "w") as f:
     f.write(pp1)
-do_cmd('cp pp/' + target + '/iGActivity$1.smali out/smali/com/supercell/' + ext + "/")
-do_cmd('cp pp/' + target + '/GameApp.smali out/smali/com/supercell/titan/')
-do_cmd('cp pp/' + target + '/GoogleServiceClient.smali out/smali/com/supercell/titan/')
-do_cmd('cp pp/' + target + '/libiG.config.so out/lib/x86/')
-do_cmd('cp pp/' + target + '/libiG.config.so out/lib/armeabi-v7a/')
-do_cmd('cp pp/batman.ttf out/assets/')
-do_cmd('cp pp/libiG.x86.so out/lib/x86/')
-do_cmd('cp pp/libiG.arm.so out/lib/armeabi-v7a/')
-do_cmd('cp pp/poseidon_splash.jpg out/assets/')
+
+shutil.copy('pp/' + target + '/AndroidManifest.xml', 'out/AndroidManifest.xml')
+shutil.copy('pp/' + target + '/iGActivity$1.smali', 'out/smali/com/supercell/' + ext + '/iGActivity$1.smali')
+shutil.copy('pp/' + target + '/GameApp.smali', 'out/smali/com/supercell/titan/GameApp.smali')
+shutil.copy('pp/' + target + '/GoogleServiceClient.smali', 'out/smali/com/supercell/titan/GoogleServiceClient.smali')
+shutil.copy('pp/' + target + '/libiG.config.so', 'out/lib/x86/libiG.config.so')
+shutil.copy('pp/' + target + '/libiG.config.so', 'out/lib/armeabi-v7a/libiG.config.so')
+shutil.copy('pp/batman.ttf', 'out/assets/batman.ttf')
+shutil.copy('pp/poseidon_splash.jpg', 'out/assets/poseidon_splash.jpg')
+shutil.copy('pp/libiG.x86.so', 'out/lib/x86/libiG.so')
+shutil.copy('pp/libiG.arm.so', 'out/lib/armeabi-v7a/libiG.so')
 
 do_cmd('apktool b -o temp.apk out/')
 do_cmd('jarsigner -sigalg SHA1withRSA -digestalg SHA1 -keystore poseidon.keystore -storepass p0s31d0n temp.apk poseidon')
 do_cmd('zipalign 4 temp.apk ' + target + '-x.apk')
-do_cmd('rm temp.apk')
-do_cmd('rm -rf out')
+os.remove('temp.apk')
+shutil.rmtree('out')
 
 print('apk ready ==> ' + target + '-x.apk')

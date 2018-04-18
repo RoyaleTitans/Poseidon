@@ -2,10 +2,15 @@ Allow Supercell Games to connect to titan servers and a custom proxy server for 
 
 --------------------
 
+## Requirements
+
+* apktool, jarsigner, zipalign
+
 ## How to:
 
-* edit config.py and set your proxy host
-* move apk to the root folder and run main.py
+* edit config.py and set your host
+* move apk to the root folder and rename it to ``cr.apk``
+* run with ``python main.py cr``
 
 ## Join us
 
