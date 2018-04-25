@@ -674,11 +674,11 @@
     return-void
 
     :pswitch_0
-    const/4 v0, 0x1
+    const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/supercell/titan/GoogleServiceClient;->d:Z
 
-    invoke-virtual {p0}, Lcom/supercell/titan/GoogleServiceClient;->connect()V
+    invoke-virtual {p0}, Lcom/supercell/titan/GoogleServiceClient;->onStop()V
 
     goto :goto_0
 
