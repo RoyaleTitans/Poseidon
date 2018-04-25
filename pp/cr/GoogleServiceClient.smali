@@ -102,7 +102,7 @@
 
     invoke-virtual {v1, p0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    iget-object v1, p1, Lcom/supercell/titan/GameApp;->d:Lcom/supercell/titan/h;
+    iget-object v1, p1, Lcom/supercell/titan/GameApp;->c:Lcom/supercell/titan/h;
 
     const-string/jumbo v2, "View must not be null"
 
@@ -110,7 +110,7 @@
 
     iput-object v1, v0, Lcom/google/android/gms/common/api/t;->c:Landroid/view/View;
 
-    invoke-virtual {v0}, Lcom/google/android/gms/common/api/t;->a()Lcom/google/android/gms/common/api/s;
+    invoke-virtual {v0}, Lcom/google/android/gms/common/api/t;->b()Lcom/google/android/gms/common/api/s;
 
     move-result-object v0
 
@@ -674,11 +674,11 @@
     return-void
 
     :pswitch_0
-    const/4 v0, 0x0
+    const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/supercell/titan/GoogleServiceClient;->d:Z
 
-    invoke-virtual {p0}, Lcom/supercell/titan/GoogleServiceClient;->onStop()V
+    invoke-virtual {p0}, Lcom/supercell/titan/GoogleServiceClient;->connect()V
 
     goto :goto_0
 
