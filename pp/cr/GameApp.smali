@@ -570,10 +570,6 @@
     :cond_5
     if-nez p1, :cond_9
 
-    iget-object v0, p0, Lcom/supercell/titan/GameApp;->D:Lcom/supercell/titan/GoogleServiceClient;
-
-    invoke-virtual {v0}, Lcom/supercell/titan/GoogleServiceClient;->onStart()V
-
     invoke-static {}, Lcom/supercell/titan/GameApp;->soundSystemStart()V
 
     const-string/jumbo v0, "notification"
@@ -3177,12 +3173,6 @@
     invoke-virtual {p0, v0}, Lcom/supercell/titan/GameApp;->setContentView(Landroid/view/View;)V
 
     invoke-virtual {p0}, Lcom/supercell/titan/GameApp;->a()V
-
-    new-instance v0, Lcom/supercell/titan/GoogleServiceClient;
-
-    invoke-direct {v0, p0}, Lcom/supercell/titan/GoogleServiceClient;-><init>(Lcom/supercell/titan/GameApp;)V
-
-    iput-object v0, p0, Lcom/supercell/titan/GameApp;->D:Lcom/supercell/titan/GoogleServiceClient;
 
     iget-object v0, p0, Lcom/supercell/titan/GameApp;->c:Lcom/supercell/titan/h;
 

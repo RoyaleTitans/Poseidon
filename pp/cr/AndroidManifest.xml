@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="com.supercell.clashroyale" platformBuildVersionCode="27" platformBuildVersionName="8.1.0">
-    <permission android:name="com.supercell.clashroyale.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
-    <uses-permission android:name="com.supercell.clashroyale.permission.C2D_MESSAGE"/>
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="com.titans.clashroyale" platformBuildVersionCode="27" platformBuildVersionName="8.1.0">
+    <permission android:name="com.titans.clashroyale.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.titans.clashroyale.permission.C2D_MESSAGE"/>
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
     <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
     <uses-feature android:name="android.hardware.screen.portrait" android:required="true"/>
@@ -14,7 +14,7 @@
     <supports-screens android:largeScreens="true" android:normalScreens="true" android:smallScreens="true" android:xlargeScreens="true"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <application android:allowBackup="true" android:backupAgent="com.supercell.titan.PreferencesBackupAgent" android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:supportsRtl="true">
+    <application android:allowBackup="true" android:backupAgent="com.supercell.titan.PreferencesBackupAgent" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:supportsRtl="true">
         <meta-data android:name="com.google.android.gms.games.APP_ID" android:value="@string/app_id"/>
         <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
         <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/fb_app_id"/>
@@ -67,7 +67,7 @@
         <meta-data android:name="android.max_aspect" android:value="2.1"/>
         <meta-data android:name="android.notch_support" android:value="true"/>
         <meta-data android:name="com.facebook.sdk.AutoLogAppEventsEnabled" android:value="false"/>
-        <provider android:authorities="com.supercell.clashroyale.helpshift.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="com.helpshift.support.providers.HelpshiftFileProvider">
+        <provider android:authorities="com.titans.clashroyale.helpshift.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="com.helpshift.support.providers.HelpshiftFileProvider">
             <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/hs__provider_paths"/>
         </provider>
         <activity android:launchMode="singleTop" android:name="com.helpshift.support.activities.ParentActivity" android:theme="@style/Helpshift.Theme.Activity"/>
@@ -76,6 +76,6 @@
         <activity android:name="com.facebook.CustomTabMainActivity"/>
         <meta-data android:name="aia-compat-api-min-version" android:value="1"/>
         <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
-        <provider android:authorities="com.supercell.clashroyale.FacebookInitProvider" android:exported="false" android:name="com.facebook.internal.FacebookInitProvider"/>
+        <provider android:authorities="com.titans.clashroyale.FacebookInitProvider" android:exported="false" android:name="com.facebook.internal.FacebookInitProvider"/>
     </application>
 </manifest>

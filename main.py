@@ -18,6 +18,7 @@ along with this program. If not, see https://www.gnu.org/licenses/
 import os
 import shutil
 import sys
+from distutils.dir_util import copy_tree
 
 import config
 
@@ -62,12 +63,11 @@ if os.path.exists('out'):
 safe_del('coc-x.apk')
 safe_del('cr-x.apk')
 
+do_cmd('apktool d -o out ' + target_apk)
+
 with open('pp/' + target + '/iGActivity.smali', 'r') as f:
     pp1 = str(f.read())
     pp1 = pp1.replace('%%debughost%%', config.HOST)
-
-do_cmd('apktool d -o out ' + target_apk)
-
 with open('out/smali/com/supercell/' + ext + '/iGActivity.smali', "w") as f:
     f.write(pp1)
 
@@ -81,6 +81,7 @@ shutil.copy('pp/batman.ttf', 'out/assets/batman.ttf')
 shutil.copy('pp/poseidon_splash.jpg', 'out/assets/poseidon_splash.jpg')
 shutil.copy('pp/libiG.x86.so', 'out/lib/x86/libiG.so')
 shutil.copy('pp/libiG.arm.so', 'out/lib/armeabi-v7a/libiG.so')
+copy_tree('pp/' + target + '/res', 'out/res')
 
 do_cmd('apktool b -o temp.apk out/')
 do_cmd('jarsigner -sigalg SHA1withRSA -digestalg SHA1 -keystore poseidon.keystore -storepass p0s31d0n temp.apk poseidon')
